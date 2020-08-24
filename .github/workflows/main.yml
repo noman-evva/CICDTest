@@ -16,7 +16,7 @@ jobs:
       - name: Run Tests
         env:
           CI: true
-          API_KEY: ${{ secrets.FIREBASE_TOKEN }}  
+          EVVA_NAME: ${{ secrets.evva_name }}  
         run: npm test
       - name: Build
         run: npm run build
