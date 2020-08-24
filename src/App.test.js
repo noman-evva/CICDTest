@@ -5,6 +5,6 @@ import App from './App';
 
 test('renders learn react link', () => {
   const { getByText } = render(<App />);
-  const token = process.env.API_KEY
-  console.log('token', token)
+  const EVVANAME = process.env.EVVA_NAME
+  console.log('EVVA_NAME', EVVANAME)
 });
