@@ -16,6 +16,7 @@ jobs:
       - name: Run Tests
         env:
           CI: true
+          API_KEY: ${{ secrets.FIREBASE_TOKEN }}  
         run: npm test
       - name: Build
         run: npm run build
