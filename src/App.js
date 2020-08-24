@@ -10,7 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-     
+       process.env.REACT_APP_WEATHER_API_KEY;
       </header>
     </div>
   );
