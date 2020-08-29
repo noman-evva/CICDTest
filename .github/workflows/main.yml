@@ -5,18 +5,6 @@ on:
       - master
 
 jobs:
-  create-envfile:
-    runs-on: ubuntu-18.04
-    steps:
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_DEBUG: false
-        envkey_SOME_API_KEY: "123456abcdef"
-        envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        some_other_variable: foobar
-        EVVA_NAME: ${{ secrets.EVVA_NAME }} 
-        file_name: .env
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -25,6 +13,16 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: npm install
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1
+        with:
+        envkey_DEBUG: false
+        envkey_SOME_API_KEY: "123456abcdef"
+        envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        some_other_variable: foobar
+        EVVA_NAME: ${{ secrets.EVVA_NAME }} 
+        file_name: .env  
+        
       - name: Run Tests
         env:
           CI: true
