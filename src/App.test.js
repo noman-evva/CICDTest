@@ -7,5 +7,5 @@ test('renders learn react link', () => {
   const { getByText } = render(<App />);
   const EVVANAME = process.env.EVVA_NAME
    var isValid=EVVANAME==="Evvatech"
-  console.log('isValidName', isValid)
+  console.log('isValidName', isValid +" EVVANAME:"+EVVANAME)
 });
