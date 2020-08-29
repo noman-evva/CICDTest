@@ -18,6 +18,7 @@ jobs:
       - name: Run Tests
         env:
           CI: true
+          EVVA_NAME: ${{ secrets.EVVA_NAME }} 
         run: npm test
       - name: Build
         run: npm run build
