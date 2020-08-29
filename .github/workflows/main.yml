@@ -13,16 +13,11 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: npm install
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_DEBUG: false
-        envkey_SOME_API_KEY: "123456abcdef"
-        envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        some_other_variable: foobar
-        EVVA_NAME: ${{ secrets.EVVA_NAME }} 
-        file_name: .env  
-        
+      - name: Create env file
+        run: |
+          touch .env
+          echo EVVA_NAME=${{ secrets.EVVA_NAME }} >> .env
+          cat .env
       - name: Run Tests
         env:
           CI: true
