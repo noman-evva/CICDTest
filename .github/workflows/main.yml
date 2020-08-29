@@ -16,8 +16,6 @@ jobs:
       - name: Run Tests
         env:
           CI: true
-           EVVA_NAME: ${{ secrets.EVVA_NAME }}
-            
         run: npm test
       - name: Build
         run: npm run build
@@ -44,3 +42,4 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          EVVA_NAME: ${{ secrets.FIREBASE_TOKEN }}  
