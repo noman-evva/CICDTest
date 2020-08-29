@@ -13,8 +13,8 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: npm install
-        - name: Addv-variable
-        run sh setEnvironment.sh ${{ secrets.EVVA_NAME }}
+      - name: Addv-variable
+        run: sh setEnvironment.sh ${{ secrets.EVVA_NAME }}
       - name: Run Tests
         env:
           CI: true
