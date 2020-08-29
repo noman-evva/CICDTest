@@ -13,6 +13,8 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: npm install
+        - name: Addv-variable
+        run sh setEnvironment.sh ${{ secrets.EVVA_NAME }}
       - name: Run Tests
         env:
           CI: true
@@ -42,4 +44,3 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          EVVA_NAME: ${{ secrets.FIREBASE_TOKEN }}  
